@@ -1,0 +1,77 @@
+{% set title = g.site_title %}
+{% set intro = g.site_intro_text %}
+
+<header class="cd-header">
+  <div id="content" tabindex="-1" style="display:none"></div>
+  <div class="tint"></div>
+  <div class="container">
+    <div class="row row1">
+      <div class="span12">
+        <div class="module-content box">
+          <div class="landing-hero-intro-text">
+            <div class="intro-text supporting-text">Welcome to</div>
+          </div>
+          <h1 class="hero-text-heading heading">{{title}}</h1>
+          <div class="hero-text-description secondary-heading">
+          {% if intro %}
+            {{ h.render_markdown(intro) }}
+          {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% block search %}
+      {% snippet 'home/snippets/search.html' %}
+    {% endblock %}
+  </div>
+</header>
+<section class="cd-hero">
+  <ul class="cd-hero-slider autoplay">
+{#
+    <li class="selected">
+      <div class="cd-full-width">
+      </div> <!-- .cd-full-width -->
+    </li>
+    <li>
+      <div class="cd-full-width">
+      </div> <!-- .cd-full-width -->
+    </li>
+    <li>
+      <div class="cd-full-width">
+      </div> <!-- .cd-full-width -->
+    </li>
+    <li>
+      <div class="cd-full-width">
+      </div> <!-- .cd-full-width -->
+    </li>
+    <li>
+      <div class="cd-full-width">
+      </div> <!-- .cd-full-width -->
+    </li>
+#}
+    {% set hero_images_list = h.get_hero_images() %}
+    {% for hero_img in hero_images_list %}
+      <li style="background-image: url({{hero_img}})" {%if loop.index == 1%}class="selected"{%endif%}>
+        <div class="cd-full-width">
+        </div> <!-- .cd-full-width -->
+      </li>
+    {% endfor %}
+  </ul> <!-- .cd-hero-slider -->
+  <div class="cd-slider-nav">
+    <nav>
+      <span class="cd-marker item-1"></span>
+      <ul>
+{#
+        <li class="selected"><a href="#0">1</a></li>
+        <li><a href="#0">2</a></li>
+        <li><a href="#0">3</a></li>
+        <li><a href="#0">4</a></li>
+        <li><a href="#0">5</a></li>
+#}
+        {% for hero_img in hero_images_list %}
+          <li {%if loop.index == 1%}class="selected"{%endif%}><a href="#0">{{loop.index}}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div> <!-- .cd-slider-nav -->
+</section> <!-- .cd-hero -->
