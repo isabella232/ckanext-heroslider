@@ -3,12 +3,13 @@
 Primary style
 
 -------------------------------- */
+/*
 *, *::after, *::before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+*/
 .supporting-text,
 .hero-text-heading,
 .hero-text-description {
@@ -18,39 +19,47 @@ Primary style
   font-weight: 400;
   font-size: 18px;
   line-height: 30px;
-  font-size: 1.66667rem;
-  line-height: 1.66667rem;
+  font-size: 1.75rem;
+  line-height: 1.875rem;
 }
 .h1.hero-text-heading.heading {
   margin: 0 0 20px 0;
   padding: 0 20px;
   font-size: 36px;
-  line-height: 40px;
+  line-height: 32px;
   font-size: 2rem;
   line-height: 2.22222rem;
 }
 @media (min-width: 768px){
   h1.hero-text-heading.heading {
-    font-size: 75px;
-    line-height: 67px;
-    font-size: 4.16667rem;
-    line-height: 3.72222rem;
+    font-size: 64px;
+    line-height: 58px;
+    font-size: 3.5rem;
+    line-height: 3.22222rem;
   }
 }
-@media (min-width: 980px) {
+@media (min-width: 1366px) {
   h1.hero-text-heading.heading {
-    font-size: 90px;
-    line-height: 85px;
-    font-size: 5rem;
-    line-height: 4.72222rem;
-    padding: 0;
+    font-size: 72px;
+    line-height: 64px;
+    font-size: 4.5rem;
+    line-height: 4.22222rem;
+  }
+}
+@media (min-width: 1366px) {
+  .landing-hero-intro-text{
+    padding-top: 55px;
   }
 }
 .hero-text-description.secondary-heading {
-  line-height: 1.35em;
-  font-size: 22px;
+  line-height: 1.25em;
+  font-size: 24px;
 }
-
+.hero-text-description.secondary-heading p:first-child strong
+{
+  line-height: 1.25em;
+  font-size: 24px;
+}
 img {
   max-width: 100%;
 }
@@ -61,9 +70,9 @@ Main Components
 
 -------------------------------- */
 .tint {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(40,139,228,0.6);
   position: absolute;
-  height: 750px;
+  height: 600px;
   width: 100%;
   z-index: -10;
 }
@@ -183,7 +192,7 @@ Slider
 
 .cd-hero-slider {
   position: relative;
-  height: 750px;
+  height: 600px;
   margin: 0;
   overflow: hidden;
 }
@@ -193,6 +202,7 @@ Slider
   left: 0;
   width: 100%;
   height: 100%;
+  list-style-type: none;
   -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);
@@ -222,23 +232,7 @@ Slider
   -moz-transition: -moz-transform 0.5s;
   transition: transform 0.5s;
 }
-@media only screen and (min-width: 500px) {
-  .cd-hero-slider {
-    height: 600px;
-  }
-  .tint {
-    height: 600px;
-  }
-}
-@media only screen and (min-width: 767px) {
-  .cd-hero-slider {
-    height: 700px;
-  }
-  .tint {
-    height: 700px;
-  }
-}
-@media only screen and (min-width: 1366px) {
+@media only screen and (min-width: 480px) {
   .cd-hero-slider {
     height: 550px;
   }
@@ -616,7 +610,7 @@ Slider navigation
 .cd-slider-nav a {
   display: block;
   position: relative;
-  padding-top: 6px;
+  //padding-top: 6px;
   font-size: 1rem;
   font-weight: 700;
   color: #a8b4be;
@@ -638,6 +632,9 @@ Slider navigation
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
+}
+.cd-slider-nav i:before {
+  padding-top: 10px;
 }
 .no-touch .cd-slider-nav a:hover {
   background-color: rgba(0, 1, 1, 0.5);
@@ -678,7 +675,7 @@ Slider navigation
     width: 65px;
   }
   .cd-slider-nav a {
-    padding-top: 6px;
+    //padding-top: 6px;
     font-size: 1.1rem;
     text-transform: uppercase;
   }
