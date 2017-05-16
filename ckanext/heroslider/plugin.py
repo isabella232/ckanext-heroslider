@@ -10,6 +10,15 @@ except ImportError:
 
 log = logging.getLogger(__name__)
 
+
+def dataset_count():
+    """Return a count of all datasets"""
+    count = 0
+    result = toolkit.get_action('package_search')({}, {'rows': 1})
+    if result.get('count'):
+        count = result.get('count')
+    return count
+
 def get_hero_images():
     resources = []
     try:
@@ -23,6 +32,7 @@ def get_hero_images():
     except:
         log.debug('Getting Hero images failed')
     return resources
+
 
 class HerosliderPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
@@ -38,5 +48,6 @@ class HerosliderPlugin(plugins.SingletonPlugin):
     # ITemplateHelpers
     def get_helpers(self):
         return {
+            'hero_dataset_count': dataset_count,
             'get_hero_images': get_hero_images,
         }
